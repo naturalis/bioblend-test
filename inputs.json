@@ -1,0 +1,1804 @@
+{
+  'model_class': 'Tool',
+  'id': 'toolshed.g2.bx.psu.edu/repos/iuc/raxml/raxml/8.2.12+galaxy1',
+  'name': 'RAxML',
+  'version': '8.2.12+galaxy1',
+  'description': 'Maximum Likelihood based inference of large phylogenetic trees',
+  'labels': [],
+  'edam_operations': [],
+  'edam_topics': [],
+  'hidden': '',
+  'is_workflow_compatible': True,
+  'xrefs': [
+    {
+      'value': 'raxml',
+      'reftype': 'bio.tools'
+    }
+  ],
+  'tool_shed_repository': {
+    'name': 'raxml',
+    'owner': 'iuc',
+    'changeset_revision': 'b1e68bbe4cef',
+    'tool_shed': 'toolshed.g2.bx.psu.edu'
+  },
+  'config_file': '/data/galaxy/var/shed_tools/toolshed.g2.bx.psu.edu/repos/iuc/raxml/b1e68bbe4cef/raxml/raxml.xml',
+  'inputs': [
+    {
+      'model_class': 'DataToolParameter',
+      'name': 'infile',
+      'argument': '-s',
+      'type': 'data',
+      'label': 'Source file with aligned sequences',
+      'help': 'At least four aligned genomes are needed for RAxML.',
+      'refresh_on_change': True,
+      'optional': False,
+      'hidden': False,
+      'is_dynamic': False,
+      'value': None,
+      'extensions': [
+        'fasta',
+        'phylip'
+      ],
+      'edam': {
+        'edam_formats': [
+          'format_1929',
+          'format_1997'
+        ],
+        'edam_data': [
+          'data_2044',
+          'data_0863'
+        ]
+      },
+      'multiple': False,
+      'options': {
+        'hda': [],
+        'hdca': []
+      },
+      'tag': None
+    },
+    {
+      'model_class': 'Conditional',
+      'name': 'search_model_selector',
+      'type': 'conditional',
+      'cases': [
+        {
+          'model_class': 'ConditionalWhen',
+          'value': 'nucleotide',
+          'inputs': [
+            {
+              'model_class': 'SelectToolParameter',
+              'name': 'base_model',
+              'argument': None,
+              'type': 'select',
+              'label': 'Substitution model',
+              'help': '',
+              'refresh_on_change': False,
+              'optional': False,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': 'GTRGAMMA',
+              'options': [
+                [
+                  'GTRCAT',
+                  'GTRCAT',
+                  False
+                ],
+                [
+                  'GTRCATI',
+                  'GTRCATI',
+                  False
+                ],
+                [
+                  'GTRGAMMA',
+                  'GTRGAMMA',
+                  True
+                ],
+                [
+                  'GTRGAMMAI',
+                  'GTRGAMMAI',
+                  False
+                ]
+              ],
+              'display': None,
+              'multiple': False,
+              'textable': False
+            }
+          ]
+        },
+        {
+          'model_class': 'ConditionalWhen',
+          'value': 'aminoacid',
+          'inputs': [
+            {
+              'model_class': 'SelectToolParameter',
+              'name': 'base_model',
+              'argument': None,
+              'type': 'select',
+              'label': 'Substitution model',
+              'help': '',
+              'refresh_on_change': False,
+              'optional': False,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': 'PROTCAT',
+              'options': [
+                [
+                  'PROTCAT',
+                  'PROTCAT',
+                  True
+                ],
+                [
+                  'PROTCATI',
+                  'PROTCATI',
+                  False
+                ],
+                [
+                  'PROTGAMMA',
+                  'PROTGAMMA',
+                  False
+                ],
+                [
+                  'PROTGAMMAI',
+                  'PROTGAMMAI',
+                  False
+                ]
+              ],
+              'display': None,
+              'multiple': False,
+              'textable': False
+            },
+            {
+              'model_class': 'SelectToolParameter',
+              'name': 'aa_search_matrix',
+              'argument': None,
+              'type': 'select',
+              'label': 'Matrix',
+              'help': '',
+              'refresh_on_change': False,
+              'optional': False,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': 'DAYHOFF',
+              'options': [
+                [
+                  'DAYHOFF',
+                  'DAYHOFF',
+                  True
+                ],
+                [
+                  'DCMUT',
+                  'DCMUT',
+                  False
+                ],
+                [
+                  'JTT',
+                  'JTT',
+                  False
+                ],
+                [
+                  'MTREV',
+                  'MTREV',
+                  False
+                ],
+                [
+                  'WAG',
+                  'WAG',
+                  False
+                ],
+                [
+                  'RTREV',
+                  'RTREV',
+                  False
+                ],
+                [
+                  'CPREV',
+                  'CPREV',
+                  False
+                ],
+                [
+                  'VT',
+                  'VT',
+                  False
+                ],
+                [
+                  'BLOSUM62',
+                  'BLOSUM62',
+                  False
+                ],
+                [
+                  'MTMAM',
+                  'MTMAM',
+                  False
+                ],
+                [
+                  'LG',
+                  'LG',
+                  False
+                ],
+                [
+                  'MTART',
+                  'MTART',
+                  False
+                ],
+                [
+                  'MTZOA',
+                  'MTZOA',
+                  False
+                ],
+                [
+                  'PMB',
+                  'PMB',
+                  False
+                ],
+                [
+                  'HIVB',
+                  'HIVB',
+                  False
+                ],
+                [
+                  'HIVW',
+                  'HIVW',
+                  False
+                ],
+                [
+                  'JTTDCMUT',
+                  'JTTDCMUT',
+                  False
+                ],
+                [
+                  'FLU',
+                  'FLU',
+                  False
+                ],
+                [
+                  'DUMMY',
+                  'DUMMY',
+                  False
+                ],
+                [
+                  'DUMMY2',
+                  'DUMMY2',
+                  False
+                ],
+                [
+                  'GTR_UNLINKED',
+                  'GTR_UNLINKED',
+                  False
+                ],
+                [
+                  'GTR',
+                  'GTR',
+                  False
+                ]
+              ],
+              'display': None,
+              'multiple': False,
+              'textable': False
+            },
+            {
+              'model_class': 'BooleanToolParameter',
+              'name': 'aa_model_empirical_base_frequencies',
+              'argument': None,
+              'type': 'boolean',
+              'label': 'Use empirical base frequencies in AA models',
+              'help': '',
+              'refresh_on_change': False,
+              'optional': False,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': False,
+              'truevalue': 'F',
+              'falsevalue': ''
+            }
+          ]
+        },
+        {
+          'model_class': 'ConditionalWhen',
+          'value': 'binary',
+          'inputs': [
+            {
+              'model_class': 'SelectToolParameter',
+              'name': 'base_model',
+              'argument': None,
+              'type': 'select',
+              'label': 'Substitution model',
+              'help': '',
+              'refresh_on_change': False,
+              'optional': False,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': 'BINCAT',
+              'options': [
+                [
+                  'BINCAT',
+                  'BINCAT',
+                  False
+                ],
+                [
+                  'BINCATI',
+                  'BINCATI',
+                  False
+                ],
+                [
+                  'BINGAMMA',
+                  'BINGAMMA',
+                  False
+                ],
+                [
+                  'BINGAMMAI',
+                  'BINGAMMAI',
+                  False
+                ]
+              ],
+              'display': None,
+              'multiple': False,
+              'textable': False
+            }
+          ]
+        },
+        {
+          'model_class': 'ConditionalWhen',
+          'value': 'multistate',
+          'inputs': [
+            {
+              'model_class': 'SelectToolParameter',
+              'name': 'base_model',
+              'argument': None,
+              'type': 'select',
+              'label': 'Substitution model',
+              'help': '',
+              'refresh_on_change': False,
+              'optional': False,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': 'MULTICAT',
+              'options': [
+                [
+                  'MULTICAT',
+                  'MULTICAT',
+                  False
+                ],
+                [
+                  'MULTICATI',
+                  'MULTICATI',
+                  False
+                ],
+                [
+                  'MULTIGAMMA',
+                  'MULTIGAMMA',
+                  False
+                ],
+                [
+                  'MULTIGAMMAI',
+                  'MULTIGAMMAI',
+                  False
+                ]
+              ],
+              'display': None,
+              'multiple': False,
+              'textable': False
+            }
+          ]
+        }
+      ],
+      'test_param': {
+        'model_class': 'SelectToolParameter',
+        'name': 'model_type',
+        'argument': None,
+        'type': 'select',
+        'label': 'Model type',
+        'help': '',
+        'refresh_on_change': True,
+        'optional': False,
+        'hidden': False,
+        'is_dynamic': False,
+        'value': 'nucleotide',
+        'options': [
+          [
+            'Nucleotide',
+            'nucleotide',
+            True
+          ],
+          [
+            'Amino Acid',
+            'aminoacid',
+            False
+          ],
+          [
+            'Binary',
+            'binary',
+            False
+          ],
+          [
+            'Multistate',
+            'multistate',
+            False
+          ]
+        ],
+        'display': None,
+        'multiple': False,
+        'textable': False
+      }
+    },
+    {
+      'model_class': 'IntegerToolParameter',
+      'name': 'random_seed',
+      'argument': '-p',
+      'type': 'integer',
+      'label': 'Random seed used for the parsimony inferences',
+      'help': '',
+      'refresh_on_change': False,
+      'min': None,
+      'max': None,
+      'optional': False,
+      'hidden': False,
+      'is_dynamic': False,
+      'value': '1234567890',
+      'area': False,
+      'datalist': []
+    },
+    {
+      'model_class': 'Conditional',
+      'name': 'selExtraOpts',
+      'type': 'conditional',
+      'cases': [
+        {
+          'model_class': 'ConditionalWhen',
+          'value': 'required',
+          'inputs': []
+        },
+        {
+          'model_class': 'ConditionalWhen',
+          'value': 'full',
+          'inputs': [
+            {
+              'model_class': 'Conditional',
+              'name': 'number_of_runs_conditional',
+              'type': 'conditional',
+              'cases': [
+                {
+                  'model_class': 'ConditionalWhen',
+                  'value': 'by_number_of_runs',
+                  'inputs': [
+                    {
+                      'model_class': 'IntegerToolParameter',
+                      'name': 'number_of_runs',
+                      'argument': '-N',
+                      'type': 'integer',
+                      'label': 'Number of alternative runs on distinct starting trees',
+                      'help': "In combination with the '-b' option, this will invoke a multiple boostrap analysis",
+                      'refresh_on_change': False,
+                      'min': None,
+                      'max': None,
+                      'optional': False,
+                      'hidden': False,
+                      'is_dynamic': False,
+                      'value': '1',
+                      'area': False,
+                      'datalist': []
+                    }
+                  ]
+                },
+                {
+                  'model_class': 'ConditionalWhen',
+                  'value': 'by_bootstopping',
+                  'inputs': [
+                    {
+                      'model_class': 'SelectToolParameter',
+                      'name': 'number_of_runs_bootstop',
+                      'argument': '-N',
+                      'type': 'select',
+                      'label': 'Bootstopping criteria',
+                      'help': "Bootstopping will only work in combination with '-x' or '-b'",
+                      'refresh_on_change': False,
+                      'optional': False,
+                      'hidden': False,
+                      'is_dynamic': False,
+                      'value': 'autoMR',
+                      'options': [
+                        [
+                          'autoMR',
+                          'autoMR',
+                          False
+                        ],
+                        [
+                          'autoMRE',
+                          'autoMRE',
+                          False
+                        ],
+                        [
+                          'autoMRE_IGN',
+                          'autoMRE_IGN',
+                          False
+                        ],
+                        [
+                          'autoFC',
+                          'autoFC',
+                          False
+                        ]
+                      ],
+                      'display': None,
+                      'multiple': False,
+                      'textable': False
+                    }
+                  ]
+                }
+              ],
+              'test_param': {
+                'model_class': 'SelectToolParameter',
+                'name': 'number_of_runs_selector',
+                'argument': None,
+                'type': 'select',
+                'label': 'Multiple boostrap specification',
+                'help': '',
+                'refresh_on_change': True,
+                'optional': False,
+                'hidden': False,
+                'is_dynamic': False,
+                'value': 'by_number_of_runs',
+                'options': [
+                  [
+                    'By number of runs',
+                    'by_number_of_runs',
+                    False
+                  ],
+                  [
+                    'By bootstopping criteria',
+                    'by_bootstopping',
+                    False
+                  ]
+                ],
+                'display': None,
+                'multiple': False,
+                'textable': False
+              }
+            },
+            {
+              'model_class': 'DataToolParameter',
+              'name': 'weightfile',
+              'argument': '-a',
+              'type': 'data',
+              'label': 'Column weight file',
+              'help': '',
+              'refresh_on_change': True,
+              'optional': True,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': None,
+              'extensions': [
+                'txt'
+              ],
+              'edam': {
+                'edam_formats': [
+                  'format_2330'
+                ],
+                'edam_data': [
+                  'data_0006'
+                ]
+              },
+              'multiple': False,
+              'options': {
+                'hda': [],
+                'hdca': []
+              },
+              'tag': None
+            },
+            {
+              'model_class': 'SelectToolParameter',
+              'name': 'secondary_structure_model',
+              'argument': '-A',
+              'type': 'select',
+              'label': 'Secondary structure substitution model',
+              'help': '',
+              'refresh_on_change': False,
+              'optional': True,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': None,
+              'options': [
+                [
+                  'S6A',
+                  'S6A',
+                  False
+                ],
+                [
+                  'S6B',
+                  'S6B',
+                  False
+                ],
+                [
+                  'S6C',
+                  'S6C',
+                  False
+                ],
+                [
+                  'S6D',
+                  'S6D',
+                  False
+                ],
+                [
+                  'S6E',
+                  'S6E',
+                  False
+                ],
+                [
+                  'S7A',
+                  'S7A',
+                  False
+                ],
+                [
+                  'S7B',
+                  'S7B',
+                  False
+                ],
+                [
+                  'S7C',
+                  'S7C',
+                  False
+                ],
+                [
+                  'S7D',
+                  'S7D',
+                  False
+                ],
+                [
+                  'S7E',
+                  'S7E',
+                  False
+                ],
+                [
+                  'S7F',
+                  'S7F',
+                  False
+                ],
+                [
+                  'S16',
+                  'S16',
+                  False
+                ],
+                [
+                  'S16A',
+                  'S16A',
+                  False
+                ],
+                [
+                  'S16B',
+                  'S16B',
+                  False
+                ]
+              ],
+              'display': None,
+              'multiple': False,
+              'textable': False
+            },
+            {
+              'model_class': 'IntegerToolParameter',
+              'name': 'bootseed',
+              'argument': '-b',
+              'type': 'integer',
+              'label': 'Random seed for non-parametric bootstrapping',
+              'help': 'Specifying a value turns on bootstrapping',
+              'refresh_on_change': False,
+              'min': None,
+              'max': None,
+              'optional': True,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': None,
+              'area': False,
+              'datalist': []
+            },
+            {
+              'model_class': 'IntegerToolParameter',
+              'name': 'rapid_bootstrap_random_seed',
+              'argument': '-x',
+              'type': 'integer',
+              'label': 'Random seed for rapid bootstrapping',
+              'help': "Specifying a value turns on rapid bootstrapping. CAUTION: unlike in version 7.0.4 RAxML will conduct rapid BS replicates under the model of rate heterogeneity you specified via '-m' and not by default under CAT",
+              'refresh_on_change': False,
+              'min': None,
+              'max': None,
+              'optional': True,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': None,
+              'area': False,
+              'datalist': []
+            },
+            {
+              'model_class': 'FloatToolParameter',
+              'name': 'cutoff_threshold',
+              'argument': '-B',
+              'type': 'float',
+              'label': 'MR cutoff threshold',
+              'help': 'Cutoff threshold for the MR-based bootstopping criteria',
+              'refresh_on_change': False,
+              'min': 0.0,
+              'max': 1.0,
+              'optional': False,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': '0.03',
+              'area': False,
+              'datalist': []
+            },
+            {
+              'model_class': 'IntegerToolParameter',
+              'name': 'numofcats',
+              'argument': '-c',
+              'type': 'integer',
+              'label': 'Number of Rate Categories for GTRCAT/GTRMIX',
+              'help': '',
+              'refresh_on_change': False,
+              'min': None,
+              'max': None,
+              'optional': False,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': '25',
+              'area': False,
+              'datalist': []
+            },
+            {
+              'model_class': 'BooleanToolParameter',
+              'name': 'search_complete_random_tree',
+              'argument': '-d',
+              'type': 'boolean',
+              'label': 'Start ML optimization from a complete random starting tree',
+              'help': '',
+              'refresh_on_change': False,
+              'optional': False,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': False,
+              'truevalue': '-d',
+              'falsevalue': ''
+            },
+            {
+              'model_class': 'BooleanToolParameter',
+              'name': 'ml_search_convergence',
+              'argument': '-D',
+              'type': 'boolean',
+              'label': 'ML search convergence criterion',
+              'help': 'This will break off ML searches if the relative Robinson-Foulds distance between the trees obtained from two consecutive lazy SPR cycles is smaller or equal to 1%. Usage recommended for very large datasets in terms of taxa. On trees with more than 500 taxa this will yield execution time improvements of approximately 50% while yielding only slightly worse trees',
+              'refresh_on_change': False,
+              'optional': False,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': False,
+              'truevalue': '-D',
+              'falsevalue': ''
+            },
+            {
+              'model_class': 'FloatToolParameter',
+              'name': 'model_opt_precision',
+              'argument': '-e',
+              'type': 'float',
+              'label': 'Model optimization precision',
+              'help': 'Set model optimization precision in log likelihood units for final optimization of tree topology',
+              'refresh_on_change': False,
+              'min': None,
+              'max': None,
+              'optional': True,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': None,
+              'area': False,
+              'datalist': []
+            },
+            {
+              'model_class': 'DataToolParameter',
+              'name': 'excludefile',
+              'argument': '-E',
+              'type': 'data',
+              'label': 'Exclude file',
+              'help': 'Should contain a specification of alignment positions you wish to exclude',
+              'refresh_on_change': True,
+              'optional': True,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': None,
+              'extensions': [
+                'txt'
+              ],
+              'edam': {
+                'edam_formats': [
+                  'format_2330'
+                ],
+                'edam_data': [
+                  'data_0006'
+                ]
+              },
+              'multiple': False,
+              'options': {
+                'hda': [],
+                'hdca': []
+              },
+              'tag': None
+            },
+            {
+              'model_class': 'SelectToolParameter',
+              'name': 'search_algorithm',
+              'argument': '-f',
+              'type': 'select',
+              'label': 'Algorithm to execute',
+              'help': '',
+              'refresh_on_change': False,
+              'optional': True,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': 'd',
+              'options': [
+                [
+                  'Rapid bootstrap and best ML tree search (a)',
+                  'a',
+                  False
+                ],
+                [
+                  'Compute marginal ancestral states (A)',
+                  'A',
+                  False
+                ],
+                [
+                  'Draw bipartition information (b)',
+                  'b',
+                  False
+                ],
+                [
+                  'Check if the alignment can be read (c)',
+                  'c',
+                  False
+                ],
+                [
+                  'New rapid hill-climbing (d)',
+                  'd',
+                  True
+                ],
+                [
+                  'Rapid hill-climbing with RELL bootstraps (D)',
+                  'D',
+                  False
+                ],
+                [
+                  'Optimize model+branch lengths under GAMMA/GAMMAI only (e)',
+                  'e',
+                  False
+                ],
+                [
+                  'Compute per-site log likelihoods for -z trees (g)',
+                  'g',
+                  False
+                ],
+                [
+                  'Compute log likelihood test for -t / -z trees (h)',
+                  'h',
+                  False
+                ],
+                [
+                  'Generate bootstrapped alignment files (j)',
+                  'j',
+                  False
+                ],
+                [
+                  'Compute SH-like support values for the -t tree (J)',
+                  'J',
+                  False
+                ],
+                [
+                  'Compare bipartitions between -t and -z trees (m)',
+                  'm',
+                  False
+                ],
+                [
+                  'Compute log likelihood score for -z trees (n)',
+                  'n',
+                  False
+                ],
+                [
+                  'Use old slower search algorithm (o)',
+                  'o',
+                  False
+                ],
+                [
+                  'Stepwise MP addition of new sequences (p)',
+                  'p',
+                  False
+                ],
+                [
+                  'Fast quartet calculator (q)',
+                  'q',
+                  False
+                ],
+                [
+                  'Compute pairwise RF distances in -z trees (r)',
+                  'r',
+                  False
+                ],
+                [
+                  'Split a multi-gene alignment (s)',
+                  's',
+                  False
+                ],
+                [
+                  'Compute site-specific placement bias (S)',
+                  'S',
+                  False
+                ],
+                [
+                  'Randomized tree searches on a fixed starting tree (t)',
+                  't',
+                  False
+                ],
+                [
+                  'Final optimization of a ML tree from a bootstrap (T)',
+                  'T',
+                  False
+                ],
+                [
+                  'Morphological weight calibration using ML on a -t tree (u)',
+                  'u',
+                  False
+                ],
+                [
+                  'Classify environmental sequences (v)',
+                  'v',
+                  False
+                ],
+                [
+                  'Compute ELW-test on -z trees (w)',
+                  'w',
+                  False
+                ],
+                [
+                  'Compute GAMMA model pair-wise ML distances on a tree (x)',
+                  'x',
+                  False
+                ],
+                [
+                  'Classify environmental sequences into a reference tree (y)',
+                  'y',
+                  False
+                ]
+              ],
+              'display': None,
+              'multiple': False,
+              'textable': False
+            },
+            {
+              'model_class': 'BooleanToolParameter',
+              'name': 'save_memory_cat_model',
+              'argument': '-F',
+              'type': 'boolean',
+              'label': 'ML tree searches under CAT model',
+              'help': 'ML tree searches under CAT model for very large trees without switching to GAMMA in the end (saves memory) and no thorough optimization under GAMMA',
+              'refresh_on_change': False,
+              'optional': False,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': False,
+              'truevalue': '-F',
+              'falsevalue': ''
+            },
+            {
+              'model_class': 'DataToolParameter',
+              'name': 'groupingfile',
+              'argument': '-g',
+              'type': 'data',
+              'label': 'Multifurcating constraint tree',
+              'help': 'This tree does not need to be comprehensive, i.e. does not have to contain all taxa',
+              'refresh_on_change': True,
+              'optional': True,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': None,
+              'extensions': [
+                'txt'
+              ],
+              'edam': {
+                'edam_formats': [
+                  'format_2330'
+                ],
+                'edam_data': [
+                  'data_0006'
+                ]
+              },
+              'multiple': False,
+              'options': {
+                'hda': [],
+                'hdca': []
+              },
+              'tag': None
+            },
+            {
+              'model_class': 'FloatToolParameter',
+              'name': 'enable_evol_heuristics',
+              'argument': '-G',
+              'type': 'float',
+              'label': 'Enable the ML-based evolutionary placement algorithm heuristics',
+              'help': 'By specifying a threshold value (fraction of insertion branches to be evaluated using slow insertions under ML)',
+              'refresh_on_change': False,
+              'min': 0.0,
+              'max': 1.0,
+              'optional': True,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': None,
+              'area': False,
+              'datalist': []
+            },
+            {
+              'model_class': 'IntegerToolParameter',
+              'name': 'initial_rearrangement_setting',
+              'argument': '-i',
+              'type': 'integer',
+              'label': 'Initial rearrangement setting for the subsequent application of topological changes phase',
+              'help': '',
+              'refresh_on_change': False,
+              'min': None,
+              'max': None,
+              'optional': True,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': None,
+              'area': False,
+              'datalist': []
+            },
+            {
+              'model_class': 'SelectToolParameter',
+              'name': 'posterior_bootstopping_analysis',
+              'argument': '-I',
+              'type': 'select',
+              'label': 'A posteriori bootstopping analysis',
+              'help': '',
+              'refresh_on_change': False,
+              'optional': True,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': None,
+              'options': [
+                [
+                  'Frequency-based criterion (autoFC)',
+                  'autoFC',
+                  False
+                ],
+                [
+                  'Majority-rule consensus tree criterion (autoMR)',
+                  'autoMR',
+                  False
+                ],
+                [
+                  'Extended majority-rule consensus tree criterion (autoMRE)',
+                  'autoMRE',
+                  False
+                ],
+                [
+                  'Extended MR consensus tree criterion with bipartitions (autoMRE_IGN)',
+                  'autoMRE_IGN',
+                  False
+                ]
+              ],
+              'display': None,
+              'multiple': False,
+              'textable': False
+            },
+            {
+              'model_class': 'SelectToolParameter',
+              'name': 'majority_rule_consensus',
+              'argument': '-J',
+              'type': 'select',
+              'label': 'Compute consensus tree',
+              'help': '',
+              'refresh_on_change': False,
+              'optional': True,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': None,
+              'options': [
+                [
+                  'Majority-rule consensus tree (MR)',
+                  'MR',
+                  False
+                ],
+                [
+                  'Extended majority-rule consensus tree (MRE)',
+                  'MRE',
+                  False
+                ],
+                [
+                  'Strict consensus tree (STRICT)',
+                  'STRICT',
+                  False
+                ],
+                [
+                  'Identify strict dropsets (STRICT_DROP)',
+                  'STRICT_DROP',
+                  False
+                ],
+                [
+                  'Identify majority-rule dropsets (MR_DROP)',
+                  'MR_DROP',
+                  False
+                ]
+              ],
+              'display': None,
+              'multiple': False,
+              'textable': False
+            },
+            {
+              'model_class': 'BooleanToolParameter',
+              'name': 'print_branch_lengths',
+              'argument': '-k',
+              'type': 'boolean',
+              'label': 'Print bootstrapped trees with branch lengths',
+              'help': 'The bootstraps will run a bit longer, because model parameters will be optimized at the end of each run under GAMMA or GAMMA+P-Invar respectively',
+              'refresh_on_change': False,
+              'optional': False,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': False,
+              'truevalue': '-k',
+              'falsevalue': ''
+            },
+            {
+              'model_class': 'SelectToolParameter',
+              'name': 'multistate_sub_model',
+              'argument': '-K',
+              'type': 'select',
+              'label': 'Specify a multi-state substitution model',
+              'help': '',
+              'refresh_on_change': False,
+              'optional': False,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': 'GTR',
+              'options': [
+                [
+                  'GTR',
+                  'GTR',
+                  True
+                ],
+                [
+                  'ORDERED',
+                  'ORDERED',
+                  False
+                ],
+                [
+                  'MK',
+                  'MK',
+                  False
+                ]
+              ],
+              'display': None,
+              'multiple': False,
+              'textable': False
+            },
+            {
+              'model_class': 'BooleanToolParameter',
+              'name': 'estimate_individual_branch_lengths',
+              'argument': '-M',
+              'type': 'boolean',
+              'label': 'Estimate individual per-partition branch lengths',
+              'help': 'Only has effect with a partition file. A weighted average of the branch lengths is computed by using the respective partition lengths',
+              'refresh_on_change': False,
+              'optional': False,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': False,
+              'truevalue': '-M',
+              'falsevalue': ''
+            },
+            {
+              'model_class': 'TextToolParameter',
+              'name': 'outgroup_name',
+              'argument': '-o',
+              'type': 'text',
+              'label': 'Outgroup name',
+              'help': 'E.g. Mouse or Mouse,Rat. No spaces between taxon names are allowed',
+              'refresh_on_change': False,
+              'optional': True,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': '',
+              'area': False,
+              'datalist': []
+            },
+            {
+              'model_class': 'BooleanToolParameter',
+              'name': 'disable_undetermined_seq_check',
+              'argument': '-O',
+              'type': 'boolean',
+              'label': 'Disable check for completely undetermined sequence in alignment',
+              'help': "The program will not exit with an error message when '-O' is specified.",
+              'refresh_on_change': False,
+              'optional': False,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': False,
+              'truevalue': '-O',
+              'falsevalue': ''
+            },
+            {
+              'model_class': 'DataToolParameter',
+              'name': 'external_protein_model',
+              'argument': '-P',
+              'type': 'data',
+              'label': 'External AA (Protein) substitution model',
+              'help': 'This file must contain 420 entries, the first 400 being the AA substitution rates (this must be a symmetric matrix) and the last 20 are the empirical base frequencies',
+              'refresh_on_change': True,
+              'optional': True,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': None,
+              'extensions': [
+                'txt'
+              ],
+              'edam': {
+                'edam_formats': [
+                  'format_2330'
+                ],
+                'edam_data': [
+                  'data_0006'
+                ]
+              },
+              'multiple': False,
+              'options': {
+                'hda': [],
+                'hdca': []
+              },
+              'tag': None
+            },
+            {
+              'model_class': 'DataToolParameter',
+              'name': 'multiple_model',
+              'argument': '-q',
+              'type': 'data',
+              'label': 'Assignment of models to alignment partitions for multiple models of substitution',
+              'help': 'For the syntax of this file please consult the RaXML manual',
+              'refresh_on_change': True,
+              'optional': True,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': None,
+              'extensions': [
+                'txt'
+              ],
+              'edam': {
+                'edam_formats': [
+                  'format_2330'
+                ],
+                'edam_data': [
+                  'data_0006'
+                ]
+              },
+              'multiple': False,
+              'options': {
+                'hda': [],
+                'hdca': []
+              },
+              'tag': None
+            },
+            {
+              'model_class': 'DataToolParameter',
+              'name': 'constraint_file',
+              'argument': '-r',
+              'type': 'data',
+              'label': 'Binary constraint tree',
+              'help': 'This tree does not need to be comprehensive, i.e. does not have to contain all taxa',
+              'refresh_on_change': True,
+              'optional': True,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': None,
+              'extensions': [
+                'txt'
+              ],
+              'edam': {
+                'edam_formats': [
+                  'format_2330'
+                ],
+                'edam_data': [
+                  'data_0006'
+                ]
+              },
+              'multiple': False,
+              'options': {
+                'hda': [],
+                'hdca': []
+              },
+              'tag': None
+            },
+            {
+              'model_class': 'DataToolParameter',
+              'name': 'bin_model_parameter_file',
+              'argument': '-R',
+              'type': 'data',
+              'label': 'Binary model parameter file',
+              'help': "This parameter file can be generated with RAxML using the '-f e' tree evaluation option",
+              'refresh_on_change': True,
+              'optional': True,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': None,
+              'extensions': [
+                'txt'
+              ],
+              'edam': {
+                'edam_formats': [
+                  'format_2330'
+                ],
+                'edam_data': [
+                  'data_0006'
+                ]
+              },
+              'multiple': False,
+              'options': {
+                'hda': [],
+                'hdca': []
+              },
+              'tag': None
+            },
+            {
+              'model_class': 'DataToolParameter',
+              'name': 'secondary_structure_file',
+              'argument': '-S',
+              'type': 'data',
+              'label': 'Secondary structure file',
+              'help': "The file can contain '.' for alignment columns that do not form part of a stem and characters '()<>[]{}' to define stem regions and pseudoknots",
+              'refresh_on_change': True,
+              'optional': True,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': None,
+              'extensions': [
+                'txt'
+              ],
+              'edam': {
+                'edam_formats': [
+                  'format_2330'
+                ],
+                'edam_data': [
+                  'data_0006'
+                ]
+              },
+              'multiple': False,
+              'options': {
+                'hda': [],
+                'hdca': []
+              },
+              'tag': None
+            },
+            {
+              'model_class': 'DataToolParameter',
+              'name': 'start_tree_file',
+              'argument': '-t',
+              'type': 'data',
+              'label': 'Starting tree file',
+              'help': 'In Newick format',
+              'refresh_on_change': True,
+              'optional': True,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': None,
+              'extensions': [
+                'nhx'
+              ],
+              'edam': {
+                'edam_formats': [
+                  'format_1910'
+                ],
+                'edam_data': [
+                  'data_0872'
+                ]
+              },
+              'multiple': False,
+              'options': {
+                'hda': [],
+                'hdca': []
+              },
+              'tag': None
+            },
+            {
+              'model_class': 'BooleanToolParameter',
+              'name': 'use_median_approximation',
+              'argument': '-u',
+              'type': 'boolean',
+              'label': 'Use the median for the discrete approximation of the GAMMA model of rate heterogeneity',
+              'help': '',
+              'refresh_on_change': False,
+              'optional': False,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': False,
+              'truevalue': '-u',
+              'falsevalue': ''
+            },
+            {
+              'model_class': 'BooleanToolParameter',
+              'name': 'save_memory_gappy_alignments',
+              'argument': '-U',
+              'type': 'boolean',
+              'label': 'Save memory on large gappy alignments',
+              'help': 'Try to save memory by using SEV-based implementation for gap columns on large gappy alignments. This will only work for DNA and/or PROTEIN data',
+              'refresh_on_change': False,
+              'optional': False,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': False,
+              'truevalue': '-U',
+              'falsevalue': ''
+            },
+            {
+              'model_class': 'BooleanToolParameter',
+              'name': 'disable_rate_heterogeneity',
+              'argument': '-V',
+              'type': 'boolean',
+              'label': 'Disable rate heterogeneity among sites model and use one without rate heterogeneity instead',
+              'help': 'Only works if you specify the CAT model of rate heterogeneity',
+              'refresh_on_change': False,
+              'optional': False,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': False,
+              'truevalue': '-V',
+              'falsevalue': ''
+            },
+            {
+              'model_class': 'IntegerToolParameter',
+              'name': 'sliding_window_size',
+              'argument': '-W',
+              'type': 'integer',
+              'label': 'Sliding window size for leave-one-out site-specific placement bias algorithm',
+              'help': "Only effective when used in combination with '-f S'",
+              'refresh_on_change': False,
+              'min': 1,
+              'max': None,
+              'optional': False,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': '100',
+              'area': False,
+              'datalist': []
+            },
+            {
+              'model_class': 'BooleanToolParameter',
+              'name': 'parsimony_starting_tree_only',
+              'argument': '-y',
+              'type': 'boolean',
+              'label': 'Compute a randomized parsimony starting tree only',
+              'help': 'The program will exit after computation of the starting tree',
+              'refresh_on_change': False,
+              'optional': False,
+              'hidden': False,
+              'is_dynamic': False,
+              'value': False,
+              'truevalue': '-y',
+              'falsevalue': ''
+            }
+          ]
+        }
+      ],
+      'test_param': {
+        'model_class': 'SelectToolParameter',
+        'name': 'extraOptions',
+        'argument': None,
+        'type': 'select',
+        'label': 'RAxML options to use',
+        'help': "The required minimal settings are the input file and the                 substitution model. To specify extra options select the 'Full option list'",
+        'refresh_on_change': True,
+        'optional': False,
+        'hidden': False,
+        'is_dynamic': False,
+        'value': 'required',
+        'options': [
+          [
+            'Required options only',
+            'required',
+            False
+          ],
+          [
+            'Full option list',
+            'full',
+            False
+          ]
+        ],
+        'display': None,
+        'multiple': False,
+        'textable': False
+      }
+    }
+  ],
+  'outputs': [
+    {
+      'model_class': 'ToolOutput',
+      'name': 'info',
+      'format': 'txt',
+      'label': '${tool.name} on ${on_string}: Info',
+      'hidden': False,
+      'output_type': 'data',
+      'format_source': None,
+      'default_identifier_source': 'None',
+      'metadata_source': '',
+      'parent': None,
+      'count': 1,
+      'from_work_dir': 'RAxML_info.galaxy',
+      'edam_format': 'format_2330',
+      'edam_data': 'data_0006',
+      'discover_datasets': []
+    },
+    {
+      'model_class': 'ToolOutput',
+      'name': 'log',
+      'format': 'txt',
+      'label': '${tool.name} on ${on_string}: Log',
+      'hidden': False,
+      'output_type': 'data',
+      'format_source': None,
+      'default_identifier_source': 'None',
+      'metadata_source': '',
+      'parent': None,
+      'count': 1,
+      'from_work_dir': 'RAxML_log.galaxy',
+      'edam_format': 'format_2330',
+      'edam_data': 'data_0006',
+      'discover_datasets': []
+    },
+    {
+      'model_class': 'ToolOutput',
+      'name': 'parsimonyTree',
+      'format': 'nhx',
+      'label': '${tool.name} on ${on_string}: Parsimony Tree',
+      'hidden': False,
+      'output_type': 'data',
+      'format_source': None,
+      'default_identifier_source': 'None',
+      'metadata_source': '',
+      'parent': None,
+      'count': 1,
+      'from_work_dir': 'RAxML_parsimonyTree.galaxy',
+      'edam_format': 'format_1910',
+      'edam_data': 'data_0872',
+      'discover_datasets': []
+    },
+    {
+      'model_class': 'ToolOutput',
+      'name': 'result',
+      'format': 'nhx',
+      'label': '${tool.name} on ${on_string}: Result',
+      'hidden': False,
+      'output_type': 'data',
+      'format_source': None,
+      'default_identifier_source': 'None',
+      'metadata_source': '',
+      'parent': None,
+      'count': 1,
+      'from_work_dir': 'RAxML_result.galaxy',
+      'edam_format': 'format_1910',
+      'edam_data': 'data_0872',
+      'discover_datasets': []
+    },
+    {
+      'model_class': 'ToolOutput',
+      'name': 'randomTree',
+      'format': 'nhx',
+      'label': '${tool.name} on ${on_string}: Random Tree',
+      'hidden': False,
+      'output_type': 'data',
+      'format_source': None,
+      'default_identifier_source': 'None',
+      'metadata_source': '',
+      'parent': None,
+      'count': 1,
+      'from_work_dir': 'RAxML_randomTree.galaxy',
+      'edam_format': 'format_1910',
+      'edam_data': 'data_0872',
+      'discover_datasets': []
+    },
+    {
+      'model_class': 'ToolOutput',
+      'name': 'bestTree',
+      'format': 'nhx',
+      'label': '${tool.name} on ${on_string}: Best-scoring ML Tree',
+      'hidden': False,
+      'output_type': 'data',
+      'format_source': None,
+      'default_identifier_source': 'None',
+      'metadata_source': '',
+      'parent': None,
+      'count': 1,
+      'from_work_dir': 'RAxML_bestTree.galaxy',
+      'edam_format': 'format_1910',
+      'edam_data': 'data_0872',
+      'discover_datasets': []
+    },
+    {
+      'model_class': 'ToolOutput',
+      'name': 'bestTreeMultipleModelPartitions',
+      'format': 'txt',
+      'label': '${tool.name} on ${on_string}: Best-scoring ML Tree Partitions',
+      'hidden': False,
+      'output_type': 'data',
+      'format_source': None,
+      'default_identifier_source': 'None',
+      'metadata_source': '',
+      'parent': None,
+      'count': 1,
+      'from_work_dir': 'RAxML_bestTreePartitions.galaxy',
+      'edam_format': 'format_2330',
+      'edam_data': 'data_0006',
+      'discover_datasets': []
+    },
+    {
+      'model_class': 'ToolOutput',
+      'name': 'resultMultipleModelPartitions',
+      'format': 'txt',
+      'label': '${tool.name} on ${on_string}: Result Partitions',
+      'hidden': False,
+      'output_type': 'data',
+      'format_source': None,
+      'default_identifier_source': 'None',
+      'metadata_source': '',
+      'parent': None,
+      'count': 1,
+      'from_work_dir': 'RAxML_resultPartitions.galaxy',
+      'edam_format': 'format_2330',
+      'edam_data': 'data_0006',
+      'discover_datasets': []
+    },
+    {
+      'model_class': 'ToolOutput',
+      'name': 'bootstrap',
+      'format': 'nhx',
+      'label': '${tool.name} on ${on_string}: Final Bootstrap Trees',
+      'hidden': False,
+      'output_type': 'data',
+      'format_source': None,
+      'default_identifier_source': 'None',
+      'metadata_source': '',
+      'parent': None,
+      'count': 1,
+      'from_work_dir': 'RAxML_bootstrap.galaxy',
+      'edam_format': 'format_1910',
+      'edam_data': 'data_0872',
+      'discover_datasets': []
+    },
+    {
+      'model_class': 'ToolOutput',
+      'name': 'bipartitions',
+      'format': 'txt',
+      'label': '${tool.name} on ${on_string}: Bipartitions',
+      'hidden': False,
+      'output_type': 'data',
+      'format_source': None,
+      'default_identifier_source': 'None',
+      'metadata_source': '',
+      'parent': None,
+      'count': 1,
+      'from_work_dir': 'RAxML_bipartitions.galaxy',
+      'edam_format': 'format_2330',
+      'edam_data': 'data_0006',
+      'discover_datasets': []
+    },
+    {
+      'model_class': 'ToolOutput',
+      'name': 'bipartitionsBranchLabels',
+      'format': 'txt',
+      'label': '${tool.name} on ${on_string}: Bipartitions Branch Labels',
+      'hidden': False,
+      'output_type': 'data',
+      'format_source': None,
+      'default_identifier_source': 'None',
+      'metadata_source': '',
+      'parent': None,
+      'count': 1,
+      'from_work_dir': 'RAxML_bipartitionsBranchLabels.galaxy',
+      'edam_format': 'format_2330',
+      'edam_data': 'data_0006',
+      'discover_datasets': []
+    },
+    {
+      'model_class': 'ToolOutput',
+      'name': 'strictConsensusTree',
+      'format': 'nhx',
+      'label': '${tool.name} on ${on_string}: Strict Consensus Tree',
+      'hidden': False,
+      'output_type': 'data',
+      'format_source': None,
+      'default_identifier_source': 'None',
+      'metadata_source': '',
+      'parent': None,
+      'count': 1,
+      'from_work_dir': 'RAxML_StrictConsensusTree.galaxy',
+      'edam_format': 'format_1910',
+      'edam_data': 'data_0872',
+      'discover_datasets': []
+    },
+    {
+      'model_class': 'ToolOutput',
+      'name': 'majorityRuleConsensusTree',
+      'format': 'nhx',
+      'label': '${tool.name} on ${on_string}: Majority Rule Consensus Tree',
+      'hidden': False,
+      'output_type': 'data',
+      'format_source': None,
+      'default_identifier_source': 'None',
+      'metadata_source': '',
+      'parent': None,
+      'count': 1,
+      'from_work_dir': 'RAxML_MajorityRuleConsensusTree.galaxy',
+      'edam_format': 'format_1910',
+      'edam_data': 'data_0872',
+      'discover_datasets': []
+    },
+    {
+      'model_class': 'ToolOutput',
+      'name': 'majorityRuleExtendedConsensusTree',
+      'format': 'nhx',
+      'label': '${tool.name} on ${on_string}: Majority Rule Extended Consensus Tree',
+      'hidden': False,
+      'output_type': 'data',
+      'format_source': None,
+      'default_identifier_source': 'None',
+      'metadata_source': '',
+      'parent': None,
+      'count': 1,
+      'from_work_dir': 'RAxML_MajorityRuleExtendedConsensusTree.galaxy',
+      'edam_format': 'format_1910',
+      'edam_data': 'data_0872',
+      'discover_datasets': []
+    },
+    {
+      'model_class': 'ToolOutput',
+      'name': 'bipartitionFreq',
+      'format': 'txt',
+      'label': '${tool.name} on ${on_string}: Pair-wise bipartition frequences.',
+      'hidden': False,
+      'output_type': 'data',
+      'format_source': None,
+      'default_identifier_source': 'None',
+      'metadata_source': '',
+      'parent': None,
+      'count': 1,
+      'from_work_dir': 'RAxML_bipartitionFrequences.galaxy',
+      'edam_format': 'format_2330',
+      'edam_data': 'data_0006',
+      'discover_datasets': []
+    },
+    {
+      'model_class': 'ToolOutput',
+      'name': 'perSiteLLs',
+      'format': 'txt',
+      'label': '${tool.name} on ${on_string}: Per-site likelihood schores',
+      'hidden': False,
+      'output_type': 'data',
+      'format_source': None,
+      'default_identifier_source': 'None',
+      'metadata_source': '',
+      'parent': None,
+      'count': 1,
+      'from_work_dir': 'RAxML_perSiteLLs.galaxy',
+      'edam_format': 'format_2330',
+      'edam_data': 'data_0006',
+      'discover_datasets': []
+    },
+    {
+      'model_class': 'ToolOutput',
+      'name': 'distances',
+      'format': 'txt',
+      'label': '${tool.name} on ${on_string}: Pair-wise distances',
+      'hidden': False,
+      'output_type': 'data',
+      'format_source': None,
+      'default_identifier_source': 'None',
+      'metadata_source': '',
+      'parent': None,
+      'count': 1,
+      'from_work_dir': 'RAxML_distances.galaxy',
+      'edam_format': 'format_2330',
+      'edam_data': 'data_0006',
+      'discover_datasets': []
+    }
+  ],
+  'panel_section_id': 'toolshed',
+  'panel_section_name': 'Toolshed',
+  'form_style': 'regular'
+}
