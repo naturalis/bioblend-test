@@ -1,1 +1,2 @@
-bioblend
+bioblend~=1.2.0
+requests~=2.31.0
